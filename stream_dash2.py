@@ -2,13 +2,20 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
+
+# Get the current directory where the script is located
+current_dir = os.path.dirname(__file__)
+
+# Specify the relative path to the CSV file
+file_path = os.path.join(current_dir, "OfficeSupplies.csv")
 
 # 1. Load Dataset
 @st.cache_data
 def load_data(file_path=None):
     if file_path:
         return pd.read_csv(file_path)
-    return pd.read_csv(r"D:\Ddrive\DataSet\OfficeSupplies.csv")
+    return pd.read_csv(file_path)
 
 # 2. App Title
 st.title("📊 Office Supplies Sales Dashboard")
