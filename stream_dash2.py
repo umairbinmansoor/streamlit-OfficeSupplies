@@ -30,7 +30,7 @@ uploaded_file = st.sidebar.file_uploader("Upload your CSV file:", type=["csv"])
 if uploaded_file:
     df = load_data(uploaded_file)
 else:
-    df = load_data()
+    df = load_data(file_path)
 
 # Convert OrderDate to datetime
 df["OrderDate"] = pd.to_datetime(df["OrderDate"])
